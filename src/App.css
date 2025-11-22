@@ -1,0 +1,624 @@
+/* ==================== Variables ==================== */
+:root {
+  --emerald-500: #10b981;
+  --emerald-600: #059669;
+  --emerald-100: #d1fae5;
+  --emerald-900: #064e3b;
+}
+
+/* ==================== Base Styles ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.quran-website {
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode */
+.quran-website.dark {
+  --bg-primary: #0f172a;
+  --bg-secondary: rgba(30, 41, 59, 0.5);
+  --bg-card: #1e293b;
+  --text-primary: #ffffff;
+  --text-muted: #cbd5e1;
+  --border-color: #334155;
+  --input-bg: #334155;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Light Mode */
+.quran-website.light {
+  --bg-primary: #fffbeb;
+  --bg-secondary: rgba(254, 243, 199, 0.5);
+  --bg-card: #ffffff;
+  --text-primary: #1e293b;
+  --text-muted: #475569;
+  --border-color: #fde68a;
+  --input-bg: #fef3c7;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.container {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.accent-text {
+  color: var(--emerald-500);
+}
+
+/* ==================== Navigation ==================== */
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 50;
+  background-color: var(--bg-primary);
+  opacity: 0.97;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav-container {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-icon {
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--emerald-500);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-icon.small {
+  padding: 0.375rem;
+}
+
+.brand-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--emerald-500);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.theme-toggle {
+  padding: 0.5rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-toggle {
+  padding: 0.5rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--text-primary);
+  display: flex;
+}
+
+.mobile-menu {
+  background-color: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+}
+
+.mobile-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.mobile-link:hover {
+  color: var(--emerald-500);
+}
+
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+  }
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* ==================== Hero Section ==================== */
+.hero {
+  padding: 6rem 1rem 4rem;
+}
+
+.hero-content {
+  max-width: 1152px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.hero-badge {
+  margin-bottom: 1.5rem;
+}
+
+.hero-badge span {
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  background-color: rgba(16, 185, 129, 0.2);
+  color: var(--emerald-500);
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.hero-title .accent-text {
+  display: block;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  max-width: 42rem;
+  margin: 0 auto 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+  .hero-description {
+    font-size: 1.25rem;
+  }
+  .hero-buttons {
+    flex-direction: row;
+  }
+}
+
+/* ==================== Buttons ==================== */
+.btn {
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--emerald-500);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--emerald-600);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--emerald-500);
+  color: var(--emerald-500);
+}
+
+.btn-outline:hover {
+  background-color: var(--emerald-500);
+  color: white;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: var(--emerald-500);
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: gap 0.3s;
+}
+
+.link-button:hover {
+  gap: 0.75rem;
+}
+
+/* ==================== Verse Card ==================== */
+.verse-card {
+  max-width: 48rem;
+  margin: 0 auto;
+  background-color: var(--bg-card);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.arabic-verse {
+  font-size: 2rem;
+  text-align: center;
+  line-height: 2;
+  font-family: 'Traditional Arabic', 'Scheherazade', serif;
+  direction: rtl;
+  margin-bottom: 1rem;
+}
+
+.verse-translation {
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.verse-reference {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--emerald-500);
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .arabic-verse {
+    font-size: 2.5rem;
+  }
+}
+
+/* ==================== Section Styles ==================== */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+}
+
+.section-footer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* ==================== Surahs Section ==================== */
+.surahs-section {
+  padding: 4rem 1rem;
+  background-color: var(--bg-secondary);
+}
+
+.surahs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.surah-card {
+  background-color: var(--bg-card);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.surah-card:hover {
+  transform: scale(1.05);
+}
+
+.surah-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.surah-number {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: var(--emerald-500);
+  color: white;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.surah-star {
+  color: var(--text-muted);
+  transition: color 0.3s;
+}
+
+.surah-card:hover .surah-star {
+  color: #eab308;
+}
+
+.surah-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.surah-meaning {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.surah-verses {
+  color: var(--emerald-500);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .surahs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .surahs-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ==================== Services Section ==================== */
+.services-section {
+  padding: 4rem 1rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.service-card {
+  background-color: var(--bg-card);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
+
+.service-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.service-icon {
+  width: 4rem;
+  height: 4rem;
+  background-color: rgba(16, 185, 129, 0.2);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: var(--emerald-500);
+}
+
+.service-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.service-desc {
+  color: var(--text-muted);
+}
+
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ==================== Stats Section ==================== */
+.stats-section {
+  padding: 4rem 1rem;
+  background-color: var(--emerald-500);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  text-align: center;
+  color: white;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.stat-label {
+  color: var(--emerald-100);
+}
+
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .stat-number {
+    font-size: 2.5rem;
+  }
+}
+
+/* ==================== Contact Section ==================== */
+.contact-section {
+  padding: 4rem 1rem;
+  background-color: var(--bg-secondary);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+.contact-description {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact-icon {
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--bg-card);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--emerald-500);
+}
+
+.contact-item span {
+  color: var(--text-muted);
+}
+
+.contact-form-card {
+  background-color: var(--bg-card);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--emerald-500);
+}
+
+.form-textarea {
+  resize: none;
+}
+
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==================== Footer ==================== */
+.footer {
+  padding: 2rem 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-text {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
